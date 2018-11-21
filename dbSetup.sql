@@ -6,7 +6,7 @@ CREATE TABLE users (
 	user_password TEXT,
 	first_name TEXT,
 	last_name TEXT
-)
+);
 
 
 CREATE TABLE comments (
