@@ -22,6 +22,8 @@ public class UserService {
 		return userRepo.getOne(id);
 	}
 	
-	
+	public User save(User user) {
+		return userRepo.save(user);
+	}
 	
 }
