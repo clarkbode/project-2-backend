@@ -5,33 +5,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
+@Table(name="users")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int user_id;
+	private int userId;
 	
 	@NotNull
 	@Column(unique=true, nullable=false, updatable=false)
-	private String user_username;
+	private String userUsername;
 
 	@NotNull
 	@Column(nullable=false)
-	private String user_password;
+	private String userPassword;
 	
 	@NotNull
 	@Column(nullable=false)
-	private String first_name;
+	private String firstName;
 	
 	@NotNull
 	@Column(nullable=false)
-	private String last_name;
+	private String lastName;
 
 	public User() {
 		super();
@@ -41,62 +42,62 @@ public class User {
 	public User(int user_id, @NotNull String user_username, @NotNull String user_password, @NotNull String first_name,
 			@NotNull String last_name) {
 		super();
-		this.user_id = user_id;
-		this.user_username = user_username;
-		this.user_password = user_password;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.userId = user_id;
+		this.userUsername = user_username;
+		this.userPassword = user_password;
+		this.firstName = first_name;
+		this.lastName = last_name;
 	}
 
 	public int getUser_id() {
-		return user_id;
+		return userId;
 	}
 
 	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+		this.userId = user_id;
 	}
 
 	public String getUser_username() {
-		return user_username;
+		return userUsername;
 	}
 
 	public void setUser_username(String user_username) {
-		this.user_username = user_username;
+		this.userUsername = user_username;
 	}
 
 	public String getUser_password() {
-		return user_password;
+		return userPassword;
 	}
 
 	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+		this.userPassword = user_password;
 	}
 
 	public String getFirst_name() {
-		return first_name;
+		return firstName;
 	}
 
 	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+		this.firstName = first_name;
 	}
 
 	public String getLast_name() {
-		return last_name;
+		return lastName;
 	}
 
 	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+		this.lastName = last_name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((first_name == null) ? 0 : first_name.hashCode());
-		result = prime * result + ((last_name == null) ? 0 : last_name.hashCode());
-		result = prime * result + user_id;
-		result = prime * result + ((user_password == null) ? 0 : user_password.hashCode());
-		result = prime * result + ((user_username == null) ? 0 : user_username.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + userId;
+		result = prime * result + ((userPassword == null) ? 0 : userPassword.hashCode());
+		result = prime * result + ((userUsername == null) ? 0 : userUsername.hashCode());
 		return result;
 	}
 
@@ -109,35 +110,35 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (first_name == null) {
-			if (other.first_name != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!first_name.equals(other.first_name))
+		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (last_name == null) {
-			if (other.last_name != null)
+		if (lastName == null) {
+			if (other.lastName != null)
 				return false;
-		} else if (!last_name.equals(other.last_name))
+		} else if (!lastName.equals(other.lastName))
 			return false;
-		if (user_id != other.user_id)
+		if (userId != other.userId)
 			return false;
-		if (user_password == null) {
-			if (other.user_password != null)
+		if (userPassword == null) {
+			if (other.userPassword != null)
 				return false;
-		} else if (!user_password.equals(other.user_password))
+		} else if (!userPassword.equals(other.userPassword))
 			return false;
-		if (user_username == null) {
-			if (other.user_username != null)
+		if (userUsername == null) {
+			if (other.userUsername != null)
 				return false;
-		} else if (!user_username.equals(other.user_username))
+		} else if (!userUsername.equals(other.userUsername))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", user_username=" + user_username + ", user_password=" + user_password
-				+ ", first_name=" + first_name + ", last_name=" + last_name + "]";
+		return "User [user_id=" + userId + ", user_username=" + userUsername + ", user_password=" + userPassword
+				+ ", first_name=" + firstName + ", last_name=" + lastName + "]";
 	}
 	
 	

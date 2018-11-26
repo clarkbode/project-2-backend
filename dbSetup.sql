@@ -32,7 +32,7 @@ CREATE TABLE posts (
 );
 
 CREATE TABLE profiles (
-	profile_id INTEGER PRIMARY KEY,
+	profile_id SERIAL PRIMARY KEY,
 	author_id INTEGER, 
 	author_birthdate TIMESTAMP,
 	profile_image TEXT,
