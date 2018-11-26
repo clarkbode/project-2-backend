@@ -2,7 +2,7 @@ SET SCHEMA 'project_2';
 
 CREATE TABLE users (
 	user_id SERIAL PRIMARY KEY,
-	user_username TEXT,
+	user_username UNIQUE TEXT,
 	user_password TEXT,
 	first_name TEXT,
 	last_name TEXT
@@ -32,7 +32,7 @@ CREATE TABLE posts (
 );
 
 CREATE TABLE profiles (
-	profile_id INTEGER PRIMARY KEY,
+	profile_id SERIAL PRIMARY KEY,
 	author_id INTEGER, 
 	author_birthdate TIMESTAMP,
 	profile_image TEXT,
