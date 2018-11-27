@@ -39,4 +39,10 @@ CREATE TABLE profiles (
 	profile_description TEXT,
 	
 	FOREIGN KEY (author_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE friends (
+	user_id INTEGER,
+	friend_id INTEGER,
+	CONSTRAINT pk_users_friends PRIMARY KEY (user_id, friend_id)
 )
