@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.Friend;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
@@ -37,4 +38,5 @@ public class UserController {
 	public User save(@RequestBody User u) {
 		return us.save(u);
 	}
+	
 }
