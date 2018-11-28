@@ -10,9 +10,9 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "post_Likes")
+@Table(name = "comment_likes")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Like {
+public class CommentLike {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,18 +24,16 @@ public class Like {
 	@NotNull
 	private Boolean likeValue;
 
-	
-	
-	public Like(int likeId, @NotNull int postId, @NotNull Boolean likeValue) {
+	public CommentLike() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CommentLike(int likeId, @NotNull int postId, @NotNull Boolean likeValue) {
 		super();
 		this.likeId = likeId;
 		this.postId = postId;
 		this.likeValue = likeValue;
-	}
-
-	public Like() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getLikeId() {
@@ -63,5 +61,4 @@ public class Like {
 	}
 	
 	
-
 }
