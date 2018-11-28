@@ -2,13 +2,15 @@ package com.revature.models;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class FriendId implements Serializable{
+@DiscriminatorValue(value="true")
+public class FriendId extends Friend implements Serializable{
 	
-	private int user_id;
-	private int friend_id;
+	private int userId;
+	private int friendId;
 	
 	public FriendId() {
 		super();
@@ -17,24 +19,24 @@ public class FriendId implements Serializable{
 
 	public FriendId(int user_id, int friend_id) {
 		super();
-		this.user_id = user_id;
-		this.friend_id = friend_id;
+		this.userId = user_id;
+		this.friendId = friend_id;
 	}
 
 	public int getUser_id() {
-		return user_id;
+		return userId;
 	}
 
 	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+		this.userId = user_id;
 	}
 
 	public int getFriend_id() {
-		return friend_id;
+		return friendId;
 	}
 
 	public void setFriend_id(int friend_id) {
-		this.friend_id = friend_id;
+		this.friendId = friend_id;
 	}
 	
 }

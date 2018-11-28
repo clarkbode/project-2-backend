@@ -1,12 +1,19 @@
 package com.revature.models;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="friends")
-public class Friend {
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="friendId")
+@DiscriminatorValue(value="true")
+public class Friend{
 	
 	@EmbeddedId
 	private FriendId friendId;

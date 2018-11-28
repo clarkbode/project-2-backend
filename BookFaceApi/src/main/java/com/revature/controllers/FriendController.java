@@ -1,7 +1,11 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +23,15 @@ public class FriendController {
 	@Autowired
 	private FriendService fs;
 	
+	@GetMapping("/id/{id}")
+	public ArrayList<Friend> getByUserId(@PathVariable int id){
+		return fs.getByUserId(id);
+	}
+	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Friend saveFriend(@RequestBody Friend friend) {
-		return fs.saveFriend(friend);
+	public Friend save(@RequestBody Friend friend) {
+		return fs.save(friend);
 	}
+	
 }

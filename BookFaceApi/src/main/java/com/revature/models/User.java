@@ -43,8 +43,8 @@ public class User {
 	@ManyToMany
 	@JoinTable(
 	        name = "friends", 
-	        joinColumns = { @JoinColumn(name = "user_id") }, 
-	        inverseJoinColumns = { @JoinColumn(name = "friend_id") }
+	        joinColumns = { @JoinColumn(name = "userId") }, 
+	        inverseJoinColumns = { @JoinColumn(name = "friendId") }
 	    )
     private Set<User> friendsList = new HashSet<>();
 

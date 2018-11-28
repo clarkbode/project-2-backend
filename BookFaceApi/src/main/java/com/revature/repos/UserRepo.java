@@ -9,6 +9,4 @@ import com.revature.models.User;
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
 
-	Friend save(Friend u);
-
 }
