@@ -1,10 +1,16 @@
 package com.revature.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -33,6 +39,14 @@ public class User {
 	@NotNull
 	@Column(nullable=false)
 	private String lastName;
+	
+	@ManyToMany
+	@JoinTable(
+	        name = "friends", 
+	        joinColumns = { @JoinColumn(name = "userId") }, 
+	        inverseJoinColumns = { @JoinColumn(name = "friendId") }
+	    )
+    private Set<User> friendsList = new HashSet<>();
 
 	public User() {
 		super();
@@ -40,13 +54,22 @@ public class User {
 	}
 
 	public User(int user_id, @NotNull String user_username, @NotNull String user_password, @NotNull String first_name,
-			@NotNull String last_name) {
+			@NotNull String last_name, Set<User> friendsList) {
 		super();
 		this.userId = user_id;
 		this.userUsername = user_username;
 		this.userPassword = user_password;
 		this.firstName = first_name;
 		this.lastName = last_name;
+		this.friendsList = friendsList;
+	}
+
+	public Set<User> getFriendsList() {
+		return friendsList;
+	}
+
+	public void setFriendsList(Set<User> friendsList) {
+		this.friendsList = friendsList;
 	}
 
 	public int getUser_id() {

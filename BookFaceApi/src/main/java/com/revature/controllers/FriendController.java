@@ -1,6 +1,6 @@
 package com.revature.controllers;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,30 +13,25 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Friend;
-import com.revature.models.User;
-import com.revature.services.UserService;
+import com.revature.services.FriendService;
 
 @RestController
-@RequestMapping(path = "users")
-public class UserController {
+@RequestMapping(path = "friends")
+
+public class FriendController {
 
 	@Autowired
-	private UserService us;
-
-	@GetMapping
-	public List<User> findAll() {
-		return us.findAll();
+	private FriendService fs;
+	
+	@GetMapping("/id/{id}")
+	public ArrayList<Friend> getByUserId(@PathVariable int id){
+		return fs.getByUserId(id);
 	}
 	
-	@GetMapping("{id}")
-	public User findById(@PathVariable int id) {
-		return us.findById(id);
-	}
-	
-	@PostMapping("/add")
+	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public User save(@RequestBody User u) {
-		return us.save(u);
+	public Friend save(@RequestBody Friend friend) {
+		return fs.save(friend);
 	}
 	
 }
