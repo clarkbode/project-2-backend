@@ -14,6 +14,7 @@ CREATE TABLE comments (
 	comment_body TEXT,
 	comment_likes INTEGER, 
 	comment_author INTEGER,
+	post_id INTEGER REFERENCES posts(post_id),
 	
 	FOREIGN KEY (comment_author) REFERENCES users(user_id)
 );
