@@ -7,9 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.models.Like;
+import com.revature.models.PostLike;
 import com.revature.models.Post;
-import com.revature.repos.LikeRepo;
+import com.revature.repos.PostLikeRepo;
 import com.revature.repos.PostRepo;
 
 @Service
@@ -19,10 +19,14 @@ public class PostService {
 	private PostRepo pr;
 	
 	@Autowired
-	private LikeRepo lr; //CREATE LIKEREPO
+	private PostLikeRepo lr; //CREATE LIKEREPO
 	
 	public List<Post> findAll() {
 		return pr.findAll();
+	}
+	
+	public List<Post> findByAuthor(int id) {
+		return pr.findByUser(id);
 	}
 	
 	public Post findById(int id){
@@ -35,7 +39,7 @@ public class PostService {
 	
 	
 	@Transactional
-	public Post like(Like l) { 
+	public Post like(PostLike l) { 
 		lr.save(l);
 		// step 2: Get the post object pr.getOne(l.getPostID) (pseudocode)
 		Post p = pr.getOne(l.getPostId());

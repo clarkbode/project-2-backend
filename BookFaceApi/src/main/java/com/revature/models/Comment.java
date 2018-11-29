@@ -10,8 +10,11 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+//@Entity
+//@Table(schema = "project_2", name = "comments")
+//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
-@Table(name = "comments")
+@Table(name = "ucomments", schema = "project_2") // CLARK: ADDING NEW COMMENTS CAUSES AN ERROR! ERROR: column comment0_.author_id does not exist
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Comment {
 	

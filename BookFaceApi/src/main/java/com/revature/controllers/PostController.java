@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.models.Like;
+import com.revature.models.PostLike;
 import com.revature.models.Post;
 import com.revature.services.PostService;
 
@@ -28,6 +28,11 @@ public class PostController {
 		return ps.findAll();
 	}
 	
+	@PostMapping("/findByAuthor{id}")
+	public List<Post> findByAuthor(@PathVariable int id) {
+		return ps.findByAuthor(id);
+	}
+	
 	@GetMapping("{id}")
 	public Post findById(@PathVariable int id) {
 		return ps.findById(id);
@@ -39,15 +44,12 @@ public class PostController {
 		return ps.save(p);
 	}
 	
+	
 	@PostMapping("/like")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Post like(@RequestBody Like l) { // Clark: I think this is right?
+	public Post like(@RequestBody PostLike l) { // Clark: I think this is right?
 		return ps.like(l);
 	}
 	
-//	@PostMapping("/merge")
-//	public Post merge(@RequestBody Post p) { //Clark: This is probably not going to work. Need to ask Blake about structure of custom functions
-//		return ps.merge(p);
-//	}
 
 }
