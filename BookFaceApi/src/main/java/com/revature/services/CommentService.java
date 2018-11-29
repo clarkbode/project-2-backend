@@ -40,7 +40,7 @@ public class CommentService {
 	public Comment like(CommentLike l) { 
 		lr.save(l);
 		// step 2: Get the post object pr.getOne(l.getPostID) (pseudocode)
-		Comment c = cr.getOne(l.getPostId());
+		Comment c = cr.getOne(l.getCommentId());
 		
 		// change post likes value based by the value from the like
 		if (l.getLikeValue())

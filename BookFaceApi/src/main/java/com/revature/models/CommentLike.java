@@ -19,7 +19,7 @@ public class CommentLike {
 	private int likeId;
 	
 	@NotNull
-	private int postId;
+	private int commentId;
 	
 	@NotNull
 	private Boolean likeValue;
@@ -29,10 +29,10 @@ public class CommentLike {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CommentLike(int likeId, @NotNull int postId, @NotNull Boolean likeValue) {
+	public CommentLike(int likeId, @NotNull int commentId, @NotNull Boolean likeValue) {
 		super();
 		this.likeId = likeId;
-		this.postId = postId;
+		this.commentId = commentId;
 		this.likeValue = likeValue;
 	}
 
@@ -44,12 +44,12 @@ public class CommentLike {
 		this.likeId = likeId;
 	}
 
-	public int getPostId() {
-		return postId;
+	public int getCommentId() {
+		return commentId;
 	}
 
-	public void setPostId(int postId) {
-		this.postId = postId;
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
 	}
 
 	public Boolean getLikeValue() {
