@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.revature.models.Friend;
+
+import com.revature.dto.Credential;
+
 import com.revature.models.User;
 import com.revature.services.UserService;
 
@@ -37,6 +41,13 @@ public class UserController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public User save(@RequestBody User u) {
 		return us.save(u);
+	}
+	
+
+	@PostMapping("/findByCred/user/{username}/pass/{password}")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public User findByCreds(@PathVariable String username, @PathVariable String password) {
+		return us.findByCredentials(username, password);
 	}
 	
 }
