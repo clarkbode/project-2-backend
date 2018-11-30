@@ -28,7 +28,7 @@ public class PostController {
 		return ps.findAll();
 	}
 	
-	@PostMapping("/findByAuthor{id}")
+	@GetMapping("/findByAuthor{id}")
 	public List<Post> findByAuthor(@PathVariable int id) {
 		return ps.findByAuthor(id);
 	}

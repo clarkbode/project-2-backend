@@ -23,6 +23,10 @@ public class CommentService {
 	
 	@Autowired
 	private CommentLikeRepo lr;
+
+	public List<Comment> findByPostId(int id){
+		return cr.findByPostId(id);
+	}
 	
 	public List<Comment> findAll() {
 		return cr.findAll();

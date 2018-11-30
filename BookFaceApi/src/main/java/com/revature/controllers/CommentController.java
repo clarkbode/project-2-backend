@@ -35,6 +35,11 @@ public class CommentController {
 		return cs.findById(id);
 	}
 	
+	@GetMapping("/findByPost/id/{id}")
+	public List<Comment> findByPostId(@PathVariable int id){
+		return cs.findByPostId(id);
+	}
+	
 	@PostMapping("/add")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Comment save(Comment c) {
