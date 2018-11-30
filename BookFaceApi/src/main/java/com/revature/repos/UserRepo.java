@@ -7,12 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
+
 import com.revature.models.Friend;
-=======
+
 //import com.revature.dto.Credential;
 //import com.revature.models.Post;
->>>>>>> dev
+
 import com.revature.models.User;
 
 @Repository

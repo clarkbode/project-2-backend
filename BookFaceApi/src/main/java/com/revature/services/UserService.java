@@ -32,8 +32,6 @@ public class UserService {
 		return userRepo.save(user);
 	}
 
-<<<<<<< HEAD
-=======
 	@Transactional
 	public User findByCredentials(String username, String password) {
 		Credential cred = new Credential(username, password); // fix this
@@ -48,5 +46,4 @@ public class UserService {
 
 	}
 
->>>>>>> dev
 }
