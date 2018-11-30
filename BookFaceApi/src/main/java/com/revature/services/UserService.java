@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-<<<<<<< HEAD
+
 import com.revature.models.Friend;
-=======
+
 import com.revature.dto.Credential;
->>>>>>> dev
+
 import com.revature.models.User;
 import com.revature.repos.UserRepo;
 
