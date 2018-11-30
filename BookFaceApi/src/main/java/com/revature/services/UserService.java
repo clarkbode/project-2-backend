@@ -4,8 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+<<<<<<< HEAD
 import com.revature.models.Friend;
+=======
+import com.revature.dto.Credential;
+>>>>>>> dev
 import com.revature.models.User;
 import com.revature.repos.UserRepo;
 
@@ -22,9 +27,26 @@ public class UserService {
 	public User findById(int id) {
 		return userRepo.getOne(id);
 	}
-	
+
 	public User save(User user) {
 		return userRepo.save(user);
 	}
 
+<<<<<<< HEAD
+=======
+	@Transactional
+	public User findByCredentials(String username, String password) {
+		Credential cred = new Credential(username, password); // fix this
+		User u = userRepo.findByCredentials(username, password);
+
+		if (cred.getUsername().equals(u.getUser_username()) && cred.getPassword().equals(u.getUser_password())) {
+			return u;
+		} else {
+
+			return null;
+		}
+
+	}
+
+>>>>>>> dev
 }
